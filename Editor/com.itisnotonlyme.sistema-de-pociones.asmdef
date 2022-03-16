@@ -1,0 +1,16 @@
+{
+    "name": "com.itisnotonlyme.sistema-de-pociones",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3b689cbbbb895f64aba039adf9d14f02"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

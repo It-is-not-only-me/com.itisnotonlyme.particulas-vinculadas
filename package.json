@@ -1,16 +1,19 @@
 {
-    "name": "com.itisnotonlyme.nombre",
-    "version": "1.0.0",
-    "displayName": "Nombre Lindo",
-    "description": "Descripcion linda",
-    "unity": "2020.3",
-    "keywords": [
-      "Key", 
-      "Words"
-    ],
-    "author": {
-      "name": "Juan Ignacio Biancuzzo",
-      "email": "jbiancuzzo@fi.uba.ar"
-    },
-    "type": "tool"
-  }
+  "name": "com.itisnotonlyme.sistema-de-pociones",
+  "version": "1.0.0",
+  "displayName": "Sistema de pociones",
+  "description": "Te permite crear elementos, que combinados crean un pocion que finalmente puedas dar a un consumidor",
+  "unity": "2020.3",
+  "keywords": [
+    "Sistema",
+    "Pocion",
+    "Pociones",
+    "Atomo",
+    "Vinculo"
+  ],
+  "author": {
+    "name": "Juan Ignacio Biancuzzo",
+    "email": "jbiancuzzo@fi.uba.ar"
+  },
+  "type": "tool"
+}
