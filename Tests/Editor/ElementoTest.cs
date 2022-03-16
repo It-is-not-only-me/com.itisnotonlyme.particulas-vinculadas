@@ -140,7 +140,7 @@ public class ElementoTest
         bool pudoUnirse = elemento1.Unirse(elemento2);
         Assert.IsTrue(pudoUnirse);
 
-        pudoUnirse = elemento1.Unirse(elemento1);
+        pudoUnirse = elemento1.Unirse(elemento3);
         Assert.IsTrue(pudoUnirse);
 
         Vector resultado = elemento1.Agregar(Vector.VectorNulo());
