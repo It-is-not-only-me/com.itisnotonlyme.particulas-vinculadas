@@ -87,8 +87,8 @@ public class VinculoTest
         ICondicionDeVinculo condicion = new CondicionDeVinculoPrueba(new RequisitoValidoPrueba(),
                                                                      new CambiarNadaPrueba());
 
-        IVinculado vinculado1 = new VinculadoPrueba(Vector.VectorNulo(), condicion);
-        IVinculado vinculado2 = new VinculadoPrueba(Vector.VectorNulo());
+        IVinculado vinculado1 = new VinculadoPrueba(Vector.Nulo(), condicion);
+        IVinculado vinculado2 = new VinculadoPrueba(Vector.Nulo());
 
         IVinculo vinculo = new Vinculo(vinculado1, vinculado2, condicion);
 

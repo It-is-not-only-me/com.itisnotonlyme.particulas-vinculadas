@@ -27,7 +27,7 @@ namespace ItIsNotOnlyMe.PotionSystem
         {
             Estabilidad();
             Vector modificado = AtributoBaseModificado();
-            return atributos.Sumar(modificado);
+            return MathfVectores.Sumar(atributos, modificado);
         }
 
         private Vector AtributoBaseModificado()

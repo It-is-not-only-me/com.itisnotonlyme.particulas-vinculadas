@@ -50,7 +50,7 @@ namespace ItIsNotOnlyMe.PotionSystem
         private Vector EstadoModificado()
         {
             Vector resultado = _estadoInicial;
-            _pociones.ForEach(pocion => resultado = resultado.Sumar(pocion.CalcularEstado()));
+            _pociones.ForEach(pocion => resultado = MathfVectores.Sumar(resultado, pocion.CalcularEstado()));
             return resultado;
         }
     }

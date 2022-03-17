@@ -62,7 +62,7 @@ public class ContenedorTest
     public void Test01UnContenedorSinIngredientesDaUnaPosionIgualAlEstadoInicial()
     {
         IContenedor contenedor = new Contenedor(_capacidadIlimitada);
-        ResultadoPrueba pocionEsperada = new ResultadoPrueba(Vector.VectorNulo());
+        ResultadoPrueba pocionEsperada = new ResultadoPrueba(Vector.Nulo());
 
         Vector pocionResultado = contenedor.CalcularEstado();
 
@@ -106,7 +106,7 @@ public class ContenedorTest
         contenedor.AgregarElemento(ingrediente1);
         contenedor.AgregarElemento(ingrediente2);
 
-        ResultadoPrueba pocionEsperada = new ResultadoPrueba(atributo1.Sumar(atributo2));
+        ResultadoPrueba pocionEsperada = new ResultadoPrueba(MathfVectores.Sumar(atributo1, atributo2));
         Vector pocionResultado = contenedor.CalcularEstado();
 
         FloatEqualityComparer comparador = new FloatEqualityComparer(10e-3f);
@@ -138,7 +138,7 @@ public class ContenedorTest
         contenedor.AgregarElemento(ingrediente1);
         contenedor.AgregarElemento(ingrediente2);
 
-        Vector atributoEsperado = ingrediente1.Agregar(Vector.VectorNulo());
+        Vector atributoEsperado = ingrediente1.Agregar(Vector.Nulo());
         atributoEsperado = ingrediente2.Agregar(atributoEsperado);
 
         ResultadoPrueba pocionEsperada = new ResultadoPrueba(atributoEsperado);
@@ -160,7 +160,7 @@ public class ContenedorTest
         Vector atributo2 = CrearVector(valorVida2, valorTemp2, valorVel2);
         IElemento ingrediente2 = new Elemento(atributo2);
 
-        ResultadoPrueba pocionEsperada = new ResultadoPrueba(atributo1.Sumar(atributo2));
+        ResultadoPrueba pocionEsperada = new ResultadoPrueba(MathfVectores.Sumar(atributo1, atributo2));
 
         IContenedor contenedor = new Contenedor(_capacidadDeDos);
         contenedor.AgregarElemento(ingrediente1);

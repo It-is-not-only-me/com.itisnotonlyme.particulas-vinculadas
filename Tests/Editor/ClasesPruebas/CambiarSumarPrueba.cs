@@ -17,6 +17,6 @@ public class CambiarSumarPrueba : ICambiar
 
     public Vector Modificar(Vector atributos)
     {
-        return atributos.Sumar(_vector);
+        return MathfVectores.Sumar(atributos, _vector);
     }
 }

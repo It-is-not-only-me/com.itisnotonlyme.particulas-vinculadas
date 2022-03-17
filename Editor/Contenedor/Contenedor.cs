@@ -36,7 +36,7 @@ namespace ItIsNotOnlyMe.PotionSystem
 
         public Vector CalcularEstado()
         {
-            Vector atributos = Vector.VectorNulo();
+            Vector atributos = Vector.Nulo();
             _elementos.ForEach(elemento => atributos = elemento.Agregar(atributos));
             return atributos;
         }

@@ -19,6 +19,6 @@ public class CambiarMultiplicarPrueba : ICambiar
 
     public Vector Modificar(Vector atributos)
     {
-        return atributos.Multiplicar(_valorMultiplicar, _identificador);
+        return MathfVectores.Multiplicar(atributos, _valorMultiplicar, _identificador);
     }
 }
