@@ -5,7 +5,7 @@ namespace ItIsNotOnlyMe.PotionSystem
 {
     public interface IConsumidor : IDemandado
     {
-        public void Consumir(IContenedor pocion);
+        public void Consumir(Pocion pocion);
 
         public bool EnCondicionesParaSeguir();
 

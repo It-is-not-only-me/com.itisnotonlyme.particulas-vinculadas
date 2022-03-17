@@ -4,7 +4,7 @@ namespace ItIsNotOnlyMe.PotionSystem
 {
     public interface IElemento : IDemandado, ICambiante, IVinculado
     {
-        public Vector Agregar(Vector vector);
+        public void Agregar(ref Vector vector);
 
         public void Estabilidad();
 

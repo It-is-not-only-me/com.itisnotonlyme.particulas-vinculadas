@@ -6,7 +6,7 @@ namespace ItIsNotOnlyMe.PotionSystem
     public class Consumidor : IConsumidor
     {
         private Vector _estadoInicial;
-        private List<IContenedor> _pociones;
+        private List<Pocion> _pociones;
         private List<IRequisito> _requisitosSobrevivir, _requisitosSatisfaccion;
 
         public Consumidor(Vector estadoInicial,
@@ -23,10 +23,10 @@ namespace ItIsNotOnlyMe.PotionSystem
                 requisitosSatisfaccion = new List<IRequisito>();
             _requisitosSatisfaccion = requisitosSatisfaccion;
 
-            _pociones = new List<IContenedor>();
+            _pociones = new List<Pocion>();
         }
 
-        public void Consumir(IContenedor pocion)
+        public void Consumir(Pocion pocion)
         {
             _pociones.Add(pocion);
         }
@@ -43,15 +43,16 @@ namespace ItIsNotOnlyMe.PotionSystem
 
         public float ObtenerValor(IIdentificador identificador)
         {
-            Vector estado = EstadoModificado();
+            EstadoModificado(out Vector estado);
             return estado.ProductoInterno(new Vector(new Componente(identificador, 1)));
         }
 
-        private Vector EstadoModificado()
+        private void EstadoModificado(out Vector resultado)
         {
-            Vector resultado = _estadoInicial;
-            _pociones.ForEach(pocion => resultado = MathfVectores.Sumar(resultado, pocion.CalcularEstado()));
-            return resultado;
+            resultado = Vector.Nulo();
+            resultado.Sumar(_estadoInicial);
+            foreach (Pocion pocion in _pociones)
+                pocion.Agregar(ref resultado);
         }
     }
 }

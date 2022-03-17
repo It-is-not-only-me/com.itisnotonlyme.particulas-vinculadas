@@ -23,11 +23,11 @@ namespace ItIsNotOnlyMe.PotionSystem
             _atributosBase = atributosBase;
         }
 
-        public Vector Agregar(Vector atributos)
+        public void Agregar(ref Vector atributos)
         {
             Estabilidad();
             Vector modificado = AtributoBaseModificado();
-            return MathfVectores.Sumar(atributos, modificado);
+            atributos.Sumar(modificado);
         }
 
         private Vector AtributoBaseModificado()

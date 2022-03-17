@@ -36,7 +36,8 @@ public class ElementoTest
         Vector atributosBase = CrearVector(valorVida, valorTemp, valorVel);
         IElemento elemento = new Elemento(atributosBase);
 
-        Vector resultado = elemento.Agregar(Vector.Nulo());
+        Vector resultado = Vector.Nulo();
+        elemento.Agregar(ref resultado);
 
         Assert.AreEqual(valorVida, GetValor(resultado, _vida));
         Assert.AreEqual(valorTemp, GetValor(resultado, _temp));
@@ -81,7 +82,8 @@ public class ElementoTest
 
         Assert.IsTrue(pudoUnirse);
 
-        Vector resultado = elemento1.Agregar(Vector.Nulo());
+        Vector resultado = Vector.Nulo();
+        elemento1.Agregar(ref resultado);
 
         Assert.AreEqual(valorVida1 * multiplicador, GetValor(resultado, _vida));
         Assert.AreEqual(valorTemp1, GetValor(resultado, _temp));
@@ -143,7 +145,8 @@ public class ElementoTest
         pudoUnirse = elemento1.Unirse(elemento3);
         Assert.IsTrue(pudoUnirse);
 
-        Vector resultado = elemento1.Agregar(Vector.Nulo());
+        Vector resultado = Vector.Nulo();
+        elemento1.Agregar(ref resultado);
 
         Assert.AreEqual(valorVida1 * multiplicador * multiplicador, GetValor(resultado, _vida));
         Assert.AreEqual(valorTemp1, GetValor(resultado, _temp));
@@ -187,7 +190,8 @@ public class ElementoTest
         pudoUnirse = elemento1.Unirse(elemento3);
         Assert.IsTrue(pudoUnirse);
 
-        Vector resultado = elemento1.Agregar(Vector.Nulo());
+        Vector resultado = Vector.Nulo();
+        elemento1.Agregar(ref resultado);
 
         Assert.AreEqual(valorVida1 * multiplicador3, GetValor(resultado, _vida));
         Assert.AreEqual(valorTemp1, GetValor(resultado, _temp));

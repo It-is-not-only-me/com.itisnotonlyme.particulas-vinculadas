@@ -3,29 +3,30 @@ using ItIsNotOnlyMe.VectorDinamico;
 
 namespace ItIsNotOnlyMe.PotionSystem
 {
-    // los ingredientes y las pociones son variaciones de contenedor
     public class Contenedor : IContenedor
     {
         private List<IElemento> _elementos;
-        private ICapacidad _capacidad;
         private List<ICambiar> _modificadores;
 
-        public Contenedor(ICapacidad capacidad, List<ICambiar> modificadores = null)
+        public Contenedor(List<ICambiar> modificadores = null)
         {
             _elementos = new List<IElemento>();
-            _capacidad = capacidad;
-            _modificadores = (modificadores == null) ? new List<ICambiar>() : modificadores;
+
+            if (modificadores == null)
+                modificadores = new List<ICambiar>();
+            _modificadores = modificadores;
         }
 
-        public bool AgregarElemento(IElemento elemento)
+        public void AgregarElemento(IElemento elemento)
         {
-            if (_capacidad.Lleno())
-                return false;
-
             _modificadores.ForEach(modificador => elemento.AgregarModificador(modificador));
             _elementos.Add(elemento);
-            _capacidad.Agregar();
-            return true;
+        }
+
+        public void AgregarPocion(Pocion pocion)
+        {
+            foreach (IElemento elemento in pocion)
+                AgregarElemento(elemento);
         }
 
         public void Mezclar(IElemento elemento1, IElemento elemento2)
@@ -34,28 +35,19 @@ namespace ItIsNotOnlyMe.PotionSystem
                 elemento1.Unirse(elemento2);
         }
 
-        public Vector CalcularEstado()
+        public Pocion CrearPocion()
         {
-            Vector atributos = Vector.Nulo();
-            _elementos.ForEach(elemento => atributos = elemento.Agregar(atributos));
-            return atributos;
+            if (Vacio())
+                return new Pocion();
+
+            Pocion pocion = new Pocion(_elementos);
+            _elementos.Clear();
+            return pocion;
         }
 
-        public void Transferir(IContenedor contenedor)
+        private bool Vacio()
         {
-            while (!contenedor.Lleno() && _capacidad.Vacio())
-            {
-                IElemento elemento = _elementos[0];
-                contenedor.AgregarElemento(elemento);
-
-                _capacidad.Reducir();
-                _elementos.RemoveAt(0);
-            }
-        }
-
-        public bool Lleno()
-        {
-            return _capacidad.Lleno();
+            return _elementos.Count == 0;
         }
     }
 }

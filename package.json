@@ -1,6 +1,6 @@
 {
   "name": "com.itisnotonlyme.sistema-de-pociones",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Sistema de pociones",
   "description": "Te permite crear elementos, que combinados crean un pocion que finalmente puedas dar a un consumidor",
   "unity": "2020.3",
