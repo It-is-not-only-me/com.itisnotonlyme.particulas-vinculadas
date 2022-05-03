@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace ItIsNotOnlyMe.PotionSystem
+namespace ItIsNotOnlyMe.SistemaDePociones
 {
     public interface IConsumidor : IDemandado
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ItIsNotOnlyMe.VectorDinamico;
 
-namespace ItIsNotOnlyMe.PotionSystem
+namespace ItIsNotOnlyMe.SistemaDePociones
 {
     public class Elemento : IElemento
     {

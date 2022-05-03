@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ItIsNotOnlyMe.VectorDinamico;
 
-namespace ItIsNotOnlyMe.PotionSystem
+namespace ItIsNotOnlyMe.SistemaDePociones
 {
     public class Pocion : IResultado, IEnumerable
     {

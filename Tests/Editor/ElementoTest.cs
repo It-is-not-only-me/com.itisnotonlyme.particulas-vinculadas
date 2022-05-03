@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using ItIsNotOnlyMe.PotionSystem;
+using ItIsNotOnlyMe.SistemaDePociones;
 using ItIsNotOnlyMe.VectorDinamico;
 
 public class ElementoTest

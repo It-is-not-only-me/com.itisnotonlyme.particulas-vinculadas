@@ -1,6 +1,6 @@
 ﻿using ItIsNotOnlyMe.VectorDinamico;
 
-namespace ItIsNotOnlyMe.PotionSystem
+namespace ItIsNotOnlyMe.SistemaDePociones
 {
     public interface ICambiar 
     {

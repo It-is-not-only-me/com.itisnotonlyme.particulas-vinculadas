@@ -1,4 +1,4 @@
-using ItIsNotOnlyMe.PotionSystem;
+using ItIsNotOnlyMe.SistemaDePociones;
 using ItIsNotOnlyMe.VectorDinamico;
 
 public class RequisitoMayorPrueba : IRequisito

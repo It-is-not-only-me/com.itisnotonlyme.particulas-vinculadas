@@ -1,4 +1,4 @@
-using ItIsNotOnlyMe.PotionSystem;
+using ItIsNotOnlyMe.SistemaDePociones;
 
 public class CondicionDeVinculoPrueba : ICondicionDeVinculo
 {
