@@ -3,6 +3,8 @@ using ItIsNotOnlyMe.VectorDinamico;
 public class IdentificadorPrueba : IIdentificador
 {
     private static int _contador = 0;
+
+    public int ID => _id;
     private int _id;
 
     public IdentificadorPrueba()
@@ -11,13 +13,8 @@ public class IdentificadorPrueba : IIdentificador
         _contador++;
     }
 
-    public int GetID()
-    {
-        return _id;
-    }
-
     public bool EsIgual(IIdentificador identificador)
     {
-        return _id == identificador.GetID();
+        return ID == ((IdentificadorPrueba)identificador).ID;
     }
 }
