@@ -1,15 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using ItIsNotOnlyMe.SistemaDePosiones;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using ItIsNotOnlyMe.SistemaDePosiones;
 
 public class AtomoTest
 {
-    [Test]
-    public void AtomoTestSimplePasses()
-    {
+    IResultado _resultadoNulo = new ResultadoPrueba(Vector3.zero);
+    IResultado _resultadoPositivo = new ResultadoPrueba(Vector3.one);
+    IResultado _resultadoNegativo = new ResultadoPrueba(-Vector3.one);
 
+    [Test]
+    public void Test01AtomoSinVinculosYUnEstadoInternoNuloSuResultadoFinalTambienEsNulo()
+    {
+        IAtomo atomo = new Atomo(_resultadoNulo);
+
+        ResultadoPrueba resultado = atomo.ResultadoFinal() as ResultadoPrueba;
+
+        Assert.AreEqual(Vector3.zero, resultado.Valor);
+    }
+
+    [Test]
+    public void Test02AtomoSinVinculosPuedeTenerVinculoConUnAtomoAlNoTenerCondicionesPuedeCrearVinculo()
+    {
+        IAtomo atomo = new Atomo(_resultadoNulo), atomoVinculante = new Atomo(_resultadoNulo);
+
+        Assert.IsTrue(atomo.PermiteCrearVinculo(atomoVinculante));
+    }
+
+    [Test]
+    public void Test03AtomoSinVinculosConUnaCondicionDeMayorParaUnAtomoConUnEstadoInternoNegativoNoPuedeCrearVinculo()
+    {
+        ICondicion condicion = new CondicionMayorPrueba(0);
+        IAtomo atomo = new Atomo(_resultadoNulo, new List<ICondicion> { condicion });
+        IAtomo atomoVinculante = new Atomo(_resultadoNegativo);
+
+        Assert.IsFalse(atomo.PermiteCrearVinculo(atomoVinculante));
+    }
+
+    [Test]
+    public void Test04AtomoSinVinculosConUnaCondicionDeMenorParaUnAtomoConUnEstadoInternoNegativoSePuedeCrearVinculo()
+    {
+        ICondicion condicion = new CondicionMenorPrueba(0);
+        IAtomo atomo = new Atomo(_resultadoNulo, new List<ICondicion> { condicion });
+        IAtomo atomoVinculante = new Atomo(_resultadoNegativo);
+
+        Assert.IsTrue(atomo.PermiteCrearVinculo(atomoVinculante));
     }
 }

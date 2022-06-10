@@ -12,6 +12,7 @@ namespace ItIsNotOnlyMe.SistemaDePosiones
         {
             _condiciones = (condiciones == null) ? new List<ICondicion>() : condiciones;
             _estadoInicial = estadoInicial;
+            _vinculos = new List<IVinculo>();
         }
 
         public void EstablecerVinculo(IVinculo vinculo)
