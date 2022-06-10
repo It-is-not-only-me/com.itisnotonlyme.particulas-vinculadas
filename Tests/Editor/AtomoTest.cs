@@ -48,4 +48,36 @@ public class AtomoTest
 
         Assert.IsTrue(atomo.PermiteCrearVinculo(atomoVinculante));
     }
+
+    [Test]
+    public void Test05AtomoConVinculoSuResultadoFinalEsElEstadoInternoSiElOtroAtomoNoTieneModificadores()
+    {
+        IAtomo atomo = new Atomo(_resultadoNulo);
+        IAtomo atomoVinculante = new Atomo(_resultadoNulo);
+
+        IVinculo vinculo = new Vinculo(atomo, atomoVinculante);
+
+        atomo.EstablecerVinculo(vinculo);
+
+        ResultadoPrueba resultado = atomo.ResultadoFinal() as ResultadoPrueba;
+
+        Assert.AreEqual(Vector3.zero, resultado.Valor);
+    }
+
+    [Test]
+    public void Test06AtomoConVinculoSuResultadoFinalEsElEstadoInternoSiElOtroAtomoNoTieneModificadores()
+    {
+        IAtomo atomo = new Atomo(_resultadoNulo);
+        IAtomo atomoVinculante = new Atomo(_resultadoNulo);
+
+        float factorDeSuma = 2;
+        IModificador modificador = new ModificadorSumaPrueba(factorDeSuma);
+        IVinculo vinculo = new Vinculo(atomo, atomoVinculante, new List<IModificador> { modificador });
+
+        atomo.EstablecerVinculo(vinculo);
+
+        ResultadoPrueba resultado = atomo.ResultadoFinal() as ResultadoPrueba;
+
+        Assert.AreEqual(Vector3.one * factorDeSuma, resultado.Valor);
+    }
 }

@@ -7,9 +7,9 @@ namespace ItIsNotOnlyMe.SistemaDePosiones
         private List<IModificador> _modificadores;
         private IAtomo _atomoPrincipal, _atomoSecundario;
 
-        public Vinculo(IAtomo atomoPrincipa, IAtomo atomoSecundario)
+        public Vinculo(IAtomo atomoPrincipa, IAtomo atomoSecundario, List<IModificador> modificadores = null)
         {
-            _modificadores = new List<IModificador>();
+            _modificadores = (modificadores == null) ? new List<IModificador>() : modificadores;
             _atomoPrincipal = atomoPrincipa;
             _atomoSecundario = atomoSecundario;
         }
