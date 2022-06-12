@@ -1,4 +1,4 @@
-﻿using ItIsNotOnlyMe.SistemaDePosiones;
+﻿using ItIsNotOnlyMe.ParticulasVinculadas;
 
 public class CondicionMayorPrueba : ICondicion
 {

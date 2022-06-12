@@ -1,4 +1,4 @@
-﻿namespace ItIsNotOnlyMe.SistemaDePosiones
+﻿namespace ItIsNotOnlyMe.ParticulasVinculadas
 {
     public interface IVinculo
     {

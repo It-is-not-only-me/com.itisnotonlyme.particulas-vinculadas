@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using ItIsNotOnlyMe.SistemaDePosiones;
+using ItIsNotOnlyMe.ParticulasVinculadas;
 
 public class ResultadoPrueba : IResultado
 {

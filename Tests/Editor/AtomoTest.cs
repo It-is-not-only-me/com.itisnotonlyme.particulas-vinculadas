@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using ItIsNotOnlyMe.SistemaDePosiones;
+using ItIsNotOnlyMe.ParticulasVinculadas;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -65,7 +65,7 @@ public class AtomoTest
     }
 
     [Test]
-    public void Test06AtomoConVinculoSuResultadoFinalEsElEstadoInternoSiElOtroAtomoNoTieneModificadores()
+    public void Test06AtomoConVinculoSuResultadoFinalEsLaSumaDeLosEstadosInternosConElOtroAtomoTeniendoUnModificadorDeSuma()
     {
         IAtomo atomo = new Atomo(_resultadoNulo);
         IAtomo atomoVinculante = new Atomo(_resultadoNulo);
@@ -79,5 +79,25 @@ public class AtomoTest
         ResultadoPrueba resultado = atomo.ResultadoFinal() as ResultadoPrueba;
 
         Assert.AreEqual(Vector3.one * factorDeSuma, resultado.Valor);
+    }
+
+    [Test]
+    public void Test07AtomoSinVinculoPermiteUnirsePeroAlCrearVinculoYaNoPermiteUnirse()
+    {
+        ICondicion condicion = new CondicionMenorPrueba(0);
+
+        IAtomo atomoVinculante = new Atomo(_resultadoNegativo);
+        IAtomo atomoPerturbador = new Atomo(_resultadoNulo);
+        IAtomo atomoDePrueba = new Atomo(_resultadoNulo, new List<ICondicion> { condicion });
+
+        float factorDeSuma = 2;
+        IModificador modificador = new ModificadorSumaPrueba(factorDeSuma);
+        IVinculo vinculo = new Vinculo(atomoVinculante, atomoPerturbador, new List<IModificador> { modificador });
+
+        Assert.IsTrue(atomoDePrueba.PermiteCrearVinculo(atomoVinculante));
+
+        atomoVinculante.EstablecerVinculo(vinculo);
+
+        Assert.IsFalse(atomoDePrueba.PermiteCrearVinculo(atomoVinculante));
     }
 }

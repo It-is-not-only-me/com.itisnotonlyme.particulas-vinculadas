@@ -1,4 +1,4 @@
-﻿using ItIsNotOnlyMe.SistemaDePosiones;
+﻿using ItIsNotOnlyMe.ParticulasVinculadas;
 using UnityEngine;
 
 public class ModificadorSumaPrueba : IModificador

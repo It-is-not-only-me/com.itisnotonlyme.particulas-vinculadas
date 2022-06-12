@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ItIsNotOnlyMe.SistemaDePosiones
+namespace ItIsNotOnlyMe.ParticulasVinculadas
 {
     public class Atomo : IAtomo
     {

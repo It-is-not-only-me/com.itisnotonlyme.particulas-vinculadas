@@ -1,33 +1,34 @@
 ﻿using System.Collections.Generic;
 
-namespace ItIsNotOnlyMe.SistemaDePosiones
+namespace ItIsNotOnlyMe.ParticulasVinculadas
 {
     public class Vinculo : IVinculo
     {
         private List<IModificador> _modificadores;
-        private IAtomo _atomoPrincipal, _atomoSecundario;
+        private List<IAtomo> _atomos;
 
-        public Vinculo(IAtomo atomoPrincipa, IAtomo atomoSecundario, List<IModificador> modificadores = null)
+        public Vinculo(IAtomo atomoPrincipal, IAtomo atomoSecundario, List<IModificador> modificadores = null)
         {
             _modificadores = (modificadores == null) ? new List<IModificador>() : modificadores;
-            _atomoPrincipal = atomoPrincipa;
-            _atomoSecundario = atomoSecundario;
+            _atomos = new List<IAtomo> { atomoPrincipal, atomoSecundario };
         }
 
         public bool EsEstable()
         {
-            return EsEstableParaAtomo(_atomoPrincipal) && EsEstableParaAtomo(_atomoSecundario);
+            return _atomos.TrueForAll(atomo => EsEstableParaAtomo(atomo));
         }
 
         private bool EsEstableParaAtomo(IAtomo atomo)
         {
-            _atomoPrincipal.RomperVinculo(this);
-            if (_atomoPrincipal.PermiteCrearVinculo(_atomoSecundario))
-            {
-                _atomoPrincipal.EstablecerVinculo(this);
-                return false;
-            }
-            return true;
+            bool esEstable = true;
+            atomo.RomperVinculo(this);
+
+            foreach (IAtomo atomoVinculado in _atomos)
+                if (atomo != atomoVinculado && !atomo.PermiteCrearVinculo(atomoVinculado))
+                    esEstable = false;
+
+            atomo.EstablecerVinculo(this);
+            return esEstable;
         }
 
         public IResultado ModificarEstado(IResultado resultado)

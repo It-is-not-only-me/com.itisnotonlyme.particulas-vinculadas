@@ -1,10 +1,14 @@
 {
-    "name": "com.itisnotonlyme.sistema-de-pociones",
+    "name": "com.itisnotonlyme.particulas-vinculadas.Tests",
     "rootNamespace": "",
     "references": [
-        "GUID:3b689cbbbb895f64aba039adf9d14f02"
+        "GUID:0acc523941302664db1f4e527237feb3",
+        "GUID:27619889b8ba8c24980f49ee34dbb44a",
+        "GUID:2035392eeb20ece4eaae0ea950ec3797"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

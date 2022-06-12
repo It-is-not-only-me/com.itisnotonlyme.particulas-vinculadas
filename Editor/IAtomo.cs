@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace ItIsNotOnlyMe.SistemaDePosiones
+namespace ItIsNotOnlyMe.ParticulasVinculadas
 {
     public interface IAtomo
     {
