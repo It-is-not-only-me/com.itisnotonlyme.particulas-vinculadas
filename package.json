@@ -1,7 +1,7 @@
 {
   "name": "com.itisnotonlyme.particulas-vinculadas",
-  "version": "2.0.0",
-  "displayName": "Sistema de pociones",
+  "version": "2.0.1",
+  "displayName": "Particulas vinculadas",
   "description": "La idea de este sistema es permitir tener elementos que se relacionan, y que pueden ir modificando, para permitir que aparezcan comportamientos emergentes de estos elementos que pueden ser simples.",
   "unity": "2020.3",
   "keywords": [
