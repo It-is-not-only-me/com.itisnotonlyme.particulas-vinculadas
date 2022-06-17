@@ -1,9 +1,7 @@
 {
     "name": "com.itisnotonlyme.particulas-vinculadas",
     "rootNamespace": "",
-    "references": [
-        "GUID:3b689cbbbb895f64aba039adf9d14f02"
-    ],
+    "references": [],
     "includePlatforms": [
         "Editor"
     ],
